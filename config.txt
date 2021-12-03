@@ -1,0 +1,19 @@
+ADMIN_PASS = admin
+SQL_PASS=admin
+RABBIT_PASS = rabb1tos
+KEYSTONE_DBPASS= admin
+GLANCE_DBPASS= admin
+GLANCE_PASS = admin
+myuser_pass = user
+glance_user=user
+PLACEMENT_DBPASS = admin
+placement_user = user
+NOVA_DBPASS = admin
+nova_user = user
+NEUTRON_DBPASS = admin
+neutron_user = user
+METADATA_SECRET = nom0re5ecret
+
+OVN 
+# apt install openvswitch_switch 
+# apt install ovn-central

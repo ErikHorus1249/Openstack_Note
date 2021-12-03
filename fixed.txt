@@ -1,0 +1,8 @@
+/etc/resolv.conf 8.8.8.8
+Execute sudo gedit /usr/lib/systemd/resolv.conf
+Paste nameserver 8.8.8.8 (and/or any other nameserver(s) you want), then save and exit.
+Add a symlink by executing sudo ln -sf /usr/lib/systemd/resolv.conf /etc/resolv.conf
+
+GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' IDENTIFIED BY 'admin';
+
+GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'admin';
