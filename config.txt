@@ -12,8 +12,30 @@ NOVA_DBPASS = admin
 nova_user = user
 NEUTRON_DBPASS = admin
 neutron_user = user
+CINDER_DPPASS = admin
+cinder_user = user
 METADATA_SECRET = nom0re5ecret
 
 OVN 
-# apt install openvswitch_switch 
+# apt install openvswitch-switch
 # apt install ovn-central
+
+requirements python7, django 2.2
+
+keystone-manage bootstrap --bootstrap-password admin\
+  --bootstrap-admin-url http://controller:5000/v3/ \
+  --bootstrap-internal-url http://controller:5000/v3/ \
+  --bootstrap-public-url http://controller:5000/v3/ \
+  --bootstrap-region-id RegionOne
+
+ovn-nbctl set-connection ptcp:6641:10.0.0.128 -- \
+            set connection . inactivity_probe=60000
+
+
+export OS_USERNAME=admin
+export OS_PASSWORD=admin
+export OS_PROJECT_NAME=admin
+export OS_USER_DOMAIN_NAME=Default
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_AUTH_URL=http://controller:5000/v3
+export OS_IDENTITY_API_VERSION=3
