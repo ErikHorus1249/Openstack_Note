@@ -1,0 +1,14 @@
+[Unit]
+Description=Mount unit for snapd, revision 14066
+Before=snapd.service
+After=zfs-mount.service
+
+[Mount]
+What=/var/lib/snapd/snaps/snapd_14066.snap
+Where=/snap/snapd/14066
+Type=squashfs
+Options=nodev,ro,x-gdu.hide,x-gvfs-hide
+LazyUnmount=yes
+
+[Install]
+WantedBy=multi-user.target
