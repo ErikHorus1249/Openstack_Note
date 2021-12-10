@@ -17,3 +17,18 @@ CHẠY L3 AGENT MANUAL
 
 Vấn đề linuxbridge agent lỗi oslo 
 https://bugzilla.redhat.com/show_bug.cgi?id=1612541
+
+Lễnh xóa router phải thực hiện xóa với port trước 
+Xem id của port
+# openstack port list --router router 
+# openstack router remove port <router_id> <port_id>
+
+
+Xóa port thủ công
+MariaDB [(none)]> use neutron;
+MariaDB [neutron]> delete from ports where id='d06e19fc-c637-402b-85a2-3519c69a1035';
+
+https://stackoverflow.com/questions/69665323/openstack-compute-node-port-binding-failed
+
+Tạo mới image 
+https://computingforgeeks.com/adding-images-openstack-glance/
