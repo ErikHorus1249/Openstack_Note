@@ -32,3 +32,7 @@ https://stackoverflow.com/questions/69665323/openstack-compute-node-port-binding
 
 Tạo mới image 
 https://computingforgeeks.com/adding-images-openstack-glance/
+
+Lỗi import etcd3gw.py khi chạy nova-conductor
+https://opendev.org/openstack/oslo.cache/src/branch/master/oslo_cache/backends/etcd3gw.py
+
