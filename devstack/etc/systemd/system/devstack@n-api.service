@@ -1,0 +1,17 @@
+
+[Unit]
+Description = Devstack devstack@n-api.service
+
+[Service]
+RestartForceExitStatus = 100
+NotifyAccess = all
+Restart = always
+KillMode = process
+Type = notify
+ExecReload = /usr/bin/kill -HUP $MAINPID
+ExecStart = /bin/uwsgi --procname-prefix nova-api --ini /etc/nova/nova-api-uwsgi.ini
+User = stack
+SyslogIdentifier = devstack@n-api.service
+
+[Install]
+WantedBy = multi-user.target

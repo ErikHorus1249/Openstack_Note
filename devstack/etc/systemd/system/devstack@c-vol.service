@@ -1,0 +1,13 @@
+
+[Unit]
+Description = Devstack devstack@c-vol.service
+
+[Service]
+ExecReload = /usr/bin/kill -HUP $MAINPID
+TimeoutStopSec = 300
+KillMode = process
+ExecStart = /usr/local/bin/cinder-volume --config-file /etc/cinder/cinder.conf
+User = stack
+
+[Install]
+WantedBy = multi-user.target

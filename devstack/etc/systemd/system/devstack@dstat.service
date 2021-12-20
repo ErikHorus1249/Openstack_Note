@@ -1,0 +1,13 @@
+
+[Unit]
+Description = Devstack devstack@dstat.service
+
+[Service]
+ExecReload = /usr/bin/kill -HUP $MAINPID
+TimeoutStopSec = 300
+KillMode = process
+ExecStart = /opt/stack/devstack/tools/dstat.sh /opt/stack/logs
+User = stack
+
+[Install]
+WantedBy = multi-user.target

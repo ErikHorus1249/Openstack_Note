@@ -1,0 +1,17 @@
+
+[Unit]
+Description = Devstack devstack@g-api.service
+
+[Service]
+RestartForceExitStatus = 100
+NotifyAccess = all
+Restart = always
+KillMode = process
+Type = notify
+ExecReload = /usr/bin/kill -HUP $MAINPID
+ExecStart = /bin/uwsgi --procname-prefix glance-api --ini /etc/glance/glance-uwsgi.ini
+User = stack
+SyslogIdentifier = devstack@g-api.service
+
+[Install]
+WantedBy = multi-user.target

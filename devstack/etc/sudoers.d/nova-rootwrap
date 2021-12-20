@@ -1,0 +1,2 @@
+stack ALL=(root) NOPASSWD: /usr/local/bin/nova-rootwrap /etc/nova/rootwrap.conf *
+stack ALL=(root) NOPASSWD: /usr/local/bin/nova-rootwrap-daemon /etc/nova/rootwrap.conf

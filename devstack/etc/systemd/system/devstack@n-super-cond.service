@@ -1,0 +1,13 @@
+
+[Unit]
+Description = Devstack devstack@n-super-cond.service
+
+[Service]
+ExecReload = /usr/bin/kill -HUP $MAINPID
+TimeoutStopSec = 300
+KillMode = process
+ExecStart = /usr/local/bin/nova-conductor --config-file /etc/nova/nova.conf
+User = stack
+
+[Install]
+WantedBy = multi-user.target

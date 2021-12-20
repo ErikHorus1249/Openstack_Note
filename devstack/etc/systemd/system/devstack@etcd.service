@@ -1,0 +1,17 @@
+
+[Unit]
+After = network.target
+Description = Devstack devstack@etcd.service
+
+[Service]
+LimitNOFILE = 65536
+Restart = on-failure
+Type = notify
+ExecReload = /usr/bin/kill -HUP $MAINPID
+TimeoutStopSec = 300
+KillMode = process
+ExecStart = /opt/stack/bin/etcd --name micro --data-dir /opt/stack/data/etcd --initial-cluster-state new --initial-cluster-token etcd-cluster-01 --initial-cluster micro=http://192.168.1.136:2380 --initial-advertise-peer-urls http://192.168.1.136:2380 --advertise-client-urls http://192.168.1.136:2379 --listen-peer-urls http://0.0.0.0:2380  --listen-client-urls http://192.168.1.136:2379 --debug
+User = root
+
+[Install]
+WantedBy = multi-user.target

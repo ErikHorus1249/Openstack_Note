@@ -1,0 +1,17 @@
+
+[Unit]
+Description = Devstack devstack@keystone.service
+
+[Service]
+RestartForceExitStatus = 100
+NotifyAccess = all
+Restart = always
+KillMode = process
+Type = notify
+ExecReload = /usr/bin/kill -HUP $MAINPID
+ExecStart = /bin/uwsgi --procname-prefix keystone --ini /etc/keystone/keystone-uwsgi-public.ini
+User = stack
+SyslogIdentifier = devstack@keystone.service
+
+[Install]
+WantedBy = multi-user.target

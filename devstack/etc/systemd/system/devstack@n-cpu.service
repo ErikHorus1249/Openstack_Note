@@ -1,0 +1,14 @@
+
+[Unit]
+Description = Devstack devstack@n-cpu.service
+
+[Service]
+Group = libvirt
+ExecReload = /usr/bin/kill -HUP $MAINPID
+TimeoutStopSec = 300
+KillMode = process
+ExecStart = /usr/local/bin/nova-compute --config-file /etc/nova/nova-cpu.conf
+User = stack
+
+[Install]
+WantedBy = multi-user.target

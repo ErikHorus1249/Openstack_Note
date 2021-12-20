@@ -1,0 +1,17 @@
+
+[Unit]
+Description = Devstack devstack@c-api.service
+
+[Service]
+RestartForceExitStatus = 100
+NotifyAccess = all
+Restart = always
+KillMode = process
+Type = notify
+ExecReload = /usr/bin/kill -HUP $MAINPID
+ExecStart = /bin/uwsgi --procname-prefix cinder-api --ini /etc/cinder/cinder-api-uwsgi.ini
+User = stack
+SyslogIdentifier = devstack@c-api.service
+
+[Install]
+WantedBy = multi-user.target
