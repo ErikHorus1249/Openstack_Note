@@ -36,3 +36,29 @@ https://computingforgeeks.com/adding-images-openstack-glance/
 Lỗi import etcd3gw.py khi chạy nova-conductor
 https://opendev.org/openstack/oslo.cache/src/branch/master/oslo_cache/backends/etcd3gw.py
 
+Lỗi Failed to create iscsi target error in the cinder-volume.log file
+https://docs.openstack.org/cinder/pike/admin/ts-cinder-config.html
+
+Below you can find my configuration files.
+
+# /etc/tgt/targets.conf:
+include /etc/tgt/conf.d/cinder_tgt.conf
+include /etc/tgt/conf.d/cinder.conf
+include /etc/tgt/conf.d/nova_tgt.conf
+default-driver iscsi
+
+# /etc/tgt/conf.d/cinder_tgt.conf
+nclude /var/lib/cinder/volumes/*
+
+# /etc/tgt/conf.d/cinder.conf
+include  /var/lib/cinder/volumes/*
+
+# /etc/tgt/conf.d/nova_tgt.conf
+include /etc/nova/volumes/
+
+#volume config in nova.conf
+volume_group=cinder-volumes
+volume_name_template=volume-%08x
+iscsi_helper=tgtadm
+iscsi_ip_prefix=192.168.111.218
+volume_api_class=nova.volume.cinder.API
