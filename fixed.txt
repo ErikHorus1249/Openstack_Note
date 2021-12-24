@@ -67,3 +67,6 @@ volume_api_class=nova.volume.cinder.API
 Having a hard time getting Rabbitmq Server started and wonder why keep getting this Error init:do_boot/3 line 817
 Lỗi không thể khởi động rabbitmq
 https://stackoverflow.com/questions/60488824/having-a-hard-time-getting-rabbitmq-server-started-and-wonder-why-keep-getting-t
+
+fix lỗi heat-engine ko chạy 
+pip install python-vitrageclient
